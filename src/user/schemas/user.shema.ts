@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { ERoles } from "src/enum/roles.enum";
 
 export type UserDocument = User & Document;
 
@@ -13,7 +14,7 @@ export class User {
     @Prop()
     password: string;
 
-    @Prop()
+    @Prop({ enum: ERoles, default: ERoles.Student })
     roles: string;
 
     @Prop()
