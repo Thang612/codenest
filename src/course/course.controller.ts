@@ -21,4 +21,9 @@ export class CourseController {
     async findAll() {
         return this.courseService.findAll();
     }
+
+    @Get(':id')
+    async findOne(@Param('id') _id: string) {
+        return this.courseService.findOne(_id);
+    }
 }

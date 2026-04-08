@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { EStatus } from "../../enum/status.enum";
 
 export type CourseDocument = Course & Document;
 
@@ -22,8 +23,8 @@ export class Course {
     @Prop({ default: 100 })
     maxAge!: number;
 
-    @Prop({ default: false })
-    isDeleted!: boolean;
+    @Prop({ default: EStatus.Draft })
+    status!: EStatus;
 }
 
 export const CourseSchema = SchemaFactory.createForClass(Course);

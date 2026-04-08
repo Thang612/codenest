@@ -19,4 +19,8 @@ export class CourseService {
     async findAll(): Promise<Course[]> {
         return this.courseModel.find().exec();
     }
+
+    async findOne(_id: string): Promise<Course | null> {
+        return this.courseModel.findById(_id).exec();
+    }
 }
